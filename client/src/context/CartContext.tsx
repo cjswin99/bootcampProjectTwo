@@ -1,4 +1,4 @@
-{/*} this is teh staring code for the cart context  items will be stored as data in backend evventualy 
+{/*
 import { useState, createContext } from "react";
 
 export const CartContext = createContext();
@@ -42,4 +42,4 @@ export const CartProvider = ({children}) => {
     )
 
 } 
-*/}
+    */}
