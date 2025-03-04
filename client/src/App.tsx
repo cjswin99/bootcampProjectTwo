@@ -2,6 +2,7 @@
 import { Outlet } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
+import ParkPage from './pages/ParkPage'
 
 {/* imports the  cart context and cart 
   import { CartProvider } from './context/CartContext'
