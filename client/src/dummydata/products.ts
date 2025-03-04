@@ -1,4 +1,4 @@
-{/* this is code used for an example of products the products will acctualy be a part of the backend
+
     const products = [
     {
         id: 1,
@@ -18,4 +18,4 @@
 ]
 
 
-export default products;*/}
+export default products;

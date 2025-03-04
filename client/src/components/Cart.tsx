@@ -1,6 +1,4 @@
-
-
-{/* this is the basic starting code for the cart 
+{/* 
 import { useContext } from "react"
 import { CartContext } from "../context/CartContext"
 
@@ -25,4 +23,4 @@ function Cart() {
     )
 }
 
-export default Cart*/}
+export default Cart */}
