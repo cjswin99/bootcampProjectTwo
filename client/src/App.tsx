@@ -1,8 +1,16 @@
-import React from "react";
-import LandingPage from "./pages/LandingPage";
-import { ParkProvider } from "./context/ParkContext";
 
-const App: React.FC = () => {
+import { Outlet } from 'react-router-dom'
+import './App.css'
+import Navbar from './components/Navbar'
+import ParkPage from './pages/ParkPage'
+
+{/* imports the  cart context and cart 
+  import { CartProvider } from './context/CartContext'
+import Cart from './components/Cart'
+*/}
+
+function App() {
+
   return (
     <ParkProvider>
       <LandingPage />
