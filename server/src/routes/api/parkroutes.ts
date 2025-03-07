@@ -1,23 +1,17 @@
-import { Router, type Request, type Response } from 'express';
-const router = Router();
+import express from 'express';
+import { getWeatherData } from '../api/weatherApi';
 
-import HistoryService from '../../service/historyService.js';
-import ParkService from '../../service/parkService.js';
+const router = express.Router();
 
-router.get('/:state', async (req: Request, res: Response) => {
+router.get('/', async (req, res) => {
   try {
-    const stateName = req.params.state;
-    const stateCode = await ParkService.convertStateNameToCode(stateName);
-    const parks = await ParkService.getParksByState(stateCode);
-    //ensures saved data has proper casing regardless of input
-    const sanitizedStateName = await ParkService.convertStateCodeToName(
-      stateCode
-    );
-    await HistoryService.addState(sanitizedStateName);
-    res.json(parks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    const location = req.query.location as string;
+    if (!location) return res.status(400).json({ error: "Location is required" });
+
+    const data = await getWeatherData(location);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch weather data' });
   }
 });
 
