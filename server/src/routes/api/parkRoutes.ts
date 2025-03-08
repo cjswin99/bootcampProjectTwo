@@ -1,15 +1,16 @@
 import express from 'express';
-import { getWeatherData } from '../api/weatherApi';
+import parkService from '../../service/parkService.js';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/:state', async (req, res) => {
   try {
-    const location = req.query.location as string;
-    if (!location) return res.status(400).json({ error: "Location is required" });
+    const targetState = req.params.state;
 
-    const data = await getWeatherData(location);
-    res.json(data);
+    const parks = await parkService.getParksByState(targetState)
+
+
+    res.json(parks)
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch weather data' });
   }
